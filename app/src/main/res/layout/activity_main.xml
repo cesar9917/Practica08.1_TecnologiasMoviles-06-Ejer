@@ -8,20 +8,62 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/RegistroEstudiantes"
+        android:id="@+id/app"
         android:text="@string/app"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/texto1"
+        android:text="@string/app_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_nombre_input"
+        />
+
+    <TextView
+        android:id="@+id/texto2"
+        android:text="@string/app_curso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
 
+    <EditText
+        android:id="@+id/editCurso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_curso_input"
+        />
 
-    />
+    <TextView
+        android:id="@+id/texto3"
+        android:text="@string/app_carrera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 
+    <EditText
+        android:id="@+id/editCarrera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/app_carrera_input"/>
 
-
-
-
-
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_guardar_btn"
+        android:layout_marginTop="20dp"
+        />
 
 
 </LinearLayout>

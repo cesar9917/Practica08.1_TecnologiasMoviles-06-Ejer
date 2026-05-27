@@ -1,15 +1,14 @@
 <resources>
-    <string name="app">Estudiantes</string>
+    <string name="app">REGISTRO DE ESTUDIANTES</string>
 
     <string name="app_nombre">Nombre</string>
-    <string name="app_nombre_input">Ingrese el nombre </string>
-
-    <string name="app_carrera">Carrera</string>
-    <string name="app_carrera_input">Ingrese su carrera profesional </string>
+    <string name="app_nombre_input">Ingrese aqui el nombre </string>
 
     <string name="app_curso">Curso</string>
-    <string name="app_curso_input">Ingrese el nombre de su curso </string>
+    <string name="app_curso_input">Ingrese aqui el nombre de su curso </string>
 
+    <string name="app_carrera">Carrera</string>
+    <string name="app_carrera_input">Ingrese aqui su carrera profesional </string>
 
     <string-array name = "Carreras">
         <item>Ingenieria de Sistemas</item>
@@ -28,6 +27,8 @@
         <item>Fisica II</item>
         <item>Fisica III</item>
     </string-array>
+
+    <string  name="app_guardar_btn">Guardar</string>
 
 
 </resources>
