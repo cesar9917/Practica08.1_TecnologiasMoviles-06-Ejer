@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "419775800863",
+    "project_id": "estudiantes-6dea0",
+    "storage_bucket": "estudiantes-6dea0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419775800863:android:ef6cb20e5ff8f9a0c2572a",
+        "android_client_info": {
+          "package_name": "com.cesar.estudiantes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7A5f5UbeUDhO8Jito4btYUVu7BfyT-GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
