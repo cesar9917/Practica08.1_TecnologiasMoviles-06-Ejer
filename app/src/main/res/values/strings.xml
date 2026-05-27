@@ -10,6 +10,8 @@
     <string name="app_carrera">Carrera</string>
     <string name="app_carrera_input">Ingrese aqui su carrera profesional </string>
 
+
+    <!-- Para futuro uso :D -->
     <string-array name = "Carreras">
         <item>Ingenieria de Sistemas</item>
         <item>Ingenieria de Minas</item>
@@ -28,7 +30,9 @@
         <item>Fisica III</item>
     </string-array>
 
-    <string  name="app_guardar_btn">Guardar</string>
+    <string name="app_guardar_btn">Guardar</string>
+
+    <string name="app_mostrar_btn">Mostrar</string>
 
 
 </resources>

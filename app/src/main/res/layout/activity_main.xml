@@ -64,5 +64,12 @@
         android:text="@string/app_guardar_btn"
         android:layout_marginTop="20dp" />
 
+    <Button
+        android:id="@+id/btnMostrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_mostrar_btn"
+        android:layout_marginTop="20dp" />
+
 
 </LinearLayout>

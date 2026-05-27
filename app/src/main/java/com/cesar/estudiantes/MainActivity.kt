@@ -1,10 +1,10 @@
 package com.cesar.estudiantes
 
+import android.content.Intent
 import android.widget.*
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.FirebaseDatabase
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var editCarrera: EditText
 
     private lateinit var btnGuardar: Button
+    private lateinit var btnMostrar: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +25,17 @@ class MainActivity : AppCompatActivity() {
         editCarrera = findViewById(R.id.editCarrera)
 
         btnGuardar = findViewById(R.id.btnGuardar)
+        btnMostrar = findViewById(R.id.btnMostrar)
 
-        btnGuardar.setOnClickListener(){
+        btnGuardar.setOnClickListener() {
             guardarEstudiante()
         }
+
+        btnMostrar.setOnClickListener {
+            val intent = Intent(this, MostrarEstudiante::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
@@ -43,12 +51,14 @@ class MainActivity : AppCompatActivity() {
         db.child("estudiantes")
             .push()
             .setValue(estudiante)
-            Toast.makeText(this, "Se guardo en Firebase", Toast.LENGTH_SHORT).show()
-            editNombre.text.clear()
-            editCurso.text.clear()
-            editCarrera.text.clear()
-    }
+            .addOnSuccessListener {
+                Toast.makeText(this, "Se guardo en Firebase", Toast.LENGTH_SHORT).show()
 
+                editNombre.text.clear()
+                editCurso.text.clear()
+                editCarrera.text.clear()
+            }
+    }
 }
 
 
