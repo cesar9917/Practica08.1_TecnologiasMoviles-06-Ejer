@@ -34,5 +34,11 @@
 
     <string name="app_mostrar_btn">Mostrar</string>
 
+    <string name="app_eliminar_btn">Eliminar</string>
+
+    <string name="app_actualizar_btn">Actualizar</string>
+
+
+
 
 </resources>

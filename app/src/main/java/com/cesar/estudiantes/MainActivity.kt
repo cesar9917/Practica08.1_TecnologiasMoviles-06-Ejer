@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnGuardar: Button
     private lateinit var btnMostrar: Button
+    private lateinit var btnActualizar: Button
+    private lateinit var btnEliminar: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
         btnGuardar = findViewById(R.id.btnGuardar)
         btnMostrar = findViewById(R.id.btnMostrar)
+        btnActualizar = findViewById(R.id.btnActualizar)
+        btnEliminar = findViewById(R.id.btnEliminar)
 
         btnGuardar.setOnClickListener() {
             guardarEstudiante()
@@ -36,29 +40,86 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnActualizar.setOnClickListener {
+            actualizarEstudiante()
+        }
+
+        btnEliminar.setOnClickListener {
+            eliminarEstudiante()
+        }
 
     }
 
     private fun guardarEstudiante() {
         val db = FirebaseDatabase.getInstance().reference
 
+        val id = db.child("estudiantes").push().key
+
         val estudiante = Estudiante (
+            id,
             nombre = editNombre.text.toString(),
             curso = editCurso.text.toString(),
             carrera = editCarrera.text.toString()
         )
 
-        db.child("estudiantes")
-            .push()
-            .setValue(estudiante)
-            .addOnSuccessListener {
-                Toast.makeText(this, "Se guardo en Firebase", Toast.LENGTH_SHORT).show()
+        if (id != null) {
+            db.child("estudiantes")
+                .child(id)
+                .setValue(estudiante)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Se guardo en Firebase", Toast.LENGTH_SHORT).show()
 
-                editNombre.text.clear()
-                editCurso.text.clear()
-                editCarrera.text.clear()
+                    editNombre.text.clear()
+                    editCurso.text.clear()
+                    editCarrera.text.clear()
+                }
+        }
+    }
+
+    private fun eliminarEstudiante() {
+        val db = FirebaseDatabase.getInstance().reference
+        val nombreBuscado = editNombre.text.toString()
+
+        db.child("estudiantes")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                for (dato in snapshot.children) {
+                    val estudiante =
+                        dato.getValue(Estudiante::class.java)
+
+                    if (estudiante?.nombre == nombreBuscado) {
+                        dato.ref.removeValue()
+                        Toast.makeText(this,"Eliminado",Toast.LENGTH_SHORT).show()
+                        break
+                    }
+                }
             }
     }
+
+    private fun actualizarEstudiante() {
+        val db = FirebaseDatabase.getInstance().reference
+        val nombreBuscado = editNombre.text.toString()
+
+        db.child("estudiantes")
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                for (dato in snapshot.children) {
+                    val estudiante =
+                        dato.getValue(Estudiante::class.java)
+                    if (estudiante?.nombre == nombreBuscado) {
+                        val datos = mapOf<String, Any>(
+                            "curso" to editCurso.text.toString(),
+                            "carrera" to editCarrera.text.toString()
+                        )
+                        dato.ref.updateChildren(datos)
+                        Toast.makeText(this,"Actualizado",Toast.LENGTH_SHORT).show()
+                        break
+                    }
+                }
+            }
+    }
+
 }
 
 
