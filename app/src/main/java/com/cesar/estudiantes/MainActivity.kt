@@ -25,8 +25,28 @@ class MainActivity : AppCompatActivity() {
 
         btnGuardar = findViewById(R.id.btnGuardar)
 
+        btnGuardar.setOnClickListener(){
+            guardarEstudiante()
+        }
 
+    }
 
+    private fun guardarEstudiante() {
+        val db = FirebaseDatabase.getInstance().reference
+
+        val estudiante = Estudiante (
+            nombre = editNombre.text.toString(),
+            curso = editCurso.text.toString(),
+            carrera = editCarrera.text.toString()
+        )
+
+        db.child("estudiantes")
+            .push()
+            .setValue(estudiante)
+            Toast.makeText(this, "Se guardo en Firebase", Toast.LENGTH_SHORT).show()
+            editNombre.text.clear()
+            editCurso.text.clear()
+            editCarrera.text.clear()
     }
 
 }

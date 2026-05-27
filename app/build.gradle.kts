@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.activity.ktx)
+    implementation("com.google.firebase:firebase-firestore-ktx:25.1.4")
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
