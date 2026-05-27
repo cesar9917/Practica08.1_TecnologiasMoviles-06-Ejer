@@ -27,8 +27,7 @@
         android:id="@+id/editNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/app_nombre_input"
-        />
+        android:hint="@string/app_nombre_input" />
 
     <TextView
         android:id="@+id/texto2"
@@ -41,8 +40,7 @@
         android:id="@+id/editCurso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/app_curso_input"
-        />
+        android:hint="@string/app_curso_input" />
 
     <TextView
         android:id="@+id/texto3"
@@ -62,8 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_guardar_btn"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp" />
 
 
 </LinearLayout>
